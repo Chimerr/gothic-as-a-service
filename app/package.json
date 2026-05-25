@@ -1,7 +1,7 @@
 {
   "name": "gothic-as-a-service",
   "version": "1.0.0",
-  "description": "API zwracające losową linię dialogową z Twojej ulubionej gierki.",
+  "description": "API zwracające losową linię dialogową z Twojej ulubionej gierki - Gothic 1.",
   "main": "index.js",
   "scripts": {
     "start": "node index.js"

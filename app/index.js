@@ -42,6 +42,13 @@ app.get('/mud', (req, res) => {
 });
 
 
+// Random Main Character dialogue endpoint
+app.get('/bezi', (req, res) => {
+  const beziDialogues = dialogues.filter(item => item.blockName === "Bezimienny");
+  const randomBeziDialogue = beziDialogues[Math.floor(Math.random() * beziDialogues.length)];
+  res.json(randomBeziDialogue);
+});
+
 // Start server
 app.listen(PORT, () => {
   console.log(`Gothic-as-a-Service is running on port ${PORT}`);
