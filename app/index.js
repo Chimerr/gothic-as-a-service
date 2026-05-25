@@ -8,6 +8,7 @@ const fs = require('fs');
 const app = express();
 app.use(cors());
 app.set('trust proxy', true);
+app.set('json spaces', 2);
 const PORT = process.env.PORT || 3000;
 
 // Load dialogues from JSON
@@ -29,10 +30,16 @@ app.use(limiter);
 
 // Random dialogue endpoint
 app.get('/', (req, res) => {
-  const dialogue = dialogues[Math.floor(Math.random() * dialogues.length)];
-  res.json({ dialogue });
+  const randomDialogue = dialogues[Math.floor(Math.random() * dialogues.length)];
+  res.json(randomDialogue);
 });
 
+// Random Mud dialogue endpoint
+app.get('/mud', (req, res) => {
+  const mudDialogues = dialogues.filter(item => item.blockName === "Wrzód");
+  const randomMudDialogue = mudDialogues[Math.floor(Math.random() * mudDialogues.length)];
+  res.json(randomMudDialogue);
+});
 
 
 // Start server
